@@ -34,7 +34,7 @@ char is_Magic2D(int a[3][3], int n, int value){
 }
 
 void randomize_1D(int *num){
-    srand(time(NULL));
+    
     int size = sizeof(num) + 1;
     int rand_n;
     int temp;
@@ -45,7 +45,8 @@ void randomize_1D(int *num){
         num[i] = temp;
     }
 }
-char randomize_2D(int a[3][3], int *num, int value){
+char randomize_2D(int a[3][3], int value){
+    int num[] = {1,2,3,4,5,6,7,8,9};
     randomize_1D(num);
     int index_num = 0;
     for(int i = 0; i < 3; i++){
@@ -96,17 +97,20 @@ int main(){
     else
         printf("This matrix is not a Lo Shu Magic Square\n\n");
 
-    int num[] = {1,2,3,4,5,6,7,8,9};
+    
+    srand(time(NULL));
     int arr_random[3][3];
     char result;
     int counter = 0;
     do{
-            result = randomize_2D(arr_random, num, value);
+            result = randomize_2D(arr_random, value);
             counter++;
     }while(result != YES && counter <= MAX_VALUE); ///Keeping track of the counter helps us avoid infinite loop.
     print_Matrix(arr_random);
-    if(result == YES)
+    if(result == YES){
         printf("This matrix is a Lo Shu Magic Square\n\n");
+        printf("The nubmer of attempt is: %d\n", counter);
+    }
     else{
         printf("Last generated matrix\n");
         printf("This matrix is not a Lo Shu Magic Square\n");
