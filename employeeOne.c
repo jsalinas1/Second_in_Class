@@ -30,7 +30,7 @@ PtrToEmployee searchEmployeeByPhone(PtrToConstEmployee ptr, int tableSize, char 
         if(strcmp(ptr->phone, targetPhone) == 0)
             return (PtrToEmployee) ptr;
     }
-
+    return NULL;
 }
 
 PtrToEmployee searchEmployeeBySalary(PtrToConstEmployee ptr, int tableSize, double targetSalary){
@@ -41,4 +41,5 @@ PtrToEmployee searchEmployeeBySalary(PtrToConstEmployee ptr, int tableSize, doub
             return (PtrToEmployee) ptr;
     }
 
+    return NULL;
 }
